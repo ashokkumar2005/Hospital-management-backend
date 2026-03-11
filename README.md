@@ -1,92 +1,236 @@
+# Hospital Management System – Backend
 
-# ⚙️ Hospital Appointment System - Backend
+## 📌 Project Overview
 
-This is the **backend server** of the Hospital Appointment System built using **Node.js, Express.js, and MongoDB**.
+The **Hospital Management System Backend** is built using **Node.js, Express.js, and MongoDB**.
 
-The backend provides REST APIs for managing hospital appointments, patient data, and system operations.
+It provides REST APIs for managing:
+
+* Patients
+* Doctors
+* Hospitals
+* Appointments
+* Blood donation requests
+* AI symptom analysis
+
+The backend handles authentication, database operations, and business logic for the hospital management platform.
 
 ---
 
-# 🚀 Technologies Used
+## 🚀 Tech Stack
 
 * Node.js
 * Express.js
 * MongoDB
 * Mongoose
-* REST API
+* JWT Authentication
+* bcrypt for password hashing
+* Multer (file upload)
+* CORS
+* dotenv
 
 ---
 
-# ✨ Features
+## 📂 Folder Structure
 
-* Appointment booking API
-* Patient data management
-* Hospital data handling
-* MongoDB database integration
-* RESTful API architecture
+```
+backend/
+ ├── controllers/
+ │     ├── authController.js
+ │     ├── appointmentController.js
+ │     ├── hospitalController.js
+ │     └── bloodController.js
+ │
+ ├── models/
+ │     ├── User.js
+ │     ├── Doctor.js
+ │     ├── Patient.js
+ │     ├── Appointment.js
+ │     └── BloodRequest.js
+ │
+ ├── routes/
+ │     ├── authRoutes.js
+ │     ├── appointmentRoutes.js
+ │     ├── hospitalRoutes.js
+ │     └── bloodRoutes.js
+ │
+ ├── middleware/
+ │     ├── authMiddleware.js
+ │     └── errorMiddleware.js
+ │
+ ├── config/
+ │     └── db.js
+ │
+ ├── utils/
+ │     └── aiSymptomChecker.js
+ │
+ ├── server.js
+ └── .env
+```
 
 ---
 
-# 📂 Project Structure
+## ✨ Features
 
-server.js
-routes/
-controllers/
-models/
-config/
+### 🔐 Authentication
+
+* JWT-based authentication
+* Password hashing using bcrypt
+* Secure login and registration
 
 ---
 
-# ⚙️ Installation
+### 👤 Patient APIs
 
-Clone the repository
+* Register patient
+* Login patient
+* Book appointment
+* View appointments
+* Blood request
 
-git clone https://github.com/ashokkumar2005/hospital-appointment-mern.git
+---
 
-Go to backend folder
+### 🩺 Doctor APIs
 
+* Doctor login
+* View assigned appointments
+* Update appointment status
+* Manage availability
+
+---
+
+### 🛠 Admin APIs
+
+* Add hospitals
+* Add doctors
+* Manage users
+* Monitor blood donation records
+
+---
+
+### 🩸 Blood Donation System
+
+Patients can:
+
+* Donate blood
+* Request blood
+* View available donors
+
+---
+
+### 🤖 AI Symptom Checker API
+
+Example request:
+
+```
+POST /api/symptoms
+```
+
+Request Body:
+
+```json
+{
+  "symptoms": ["fever", "cough"]
+}
+```
+
+Response:
+
+```json
+{
+  "possibleDisease": "Flu",
+  "suggestion": "Consult a doctor"
+}
+```
+
+---
+
+## 🔧 Installation
+
+### 1️⃣ Clone the Repository
+
+```
+git clone https://github.com/yourusername/hospital-management-system.git
+```
+
+### 2️⃣ Navigate to Backend
+
+```
 cd backend
+```
 
-Install dependencies
+### 3️⃣ Install Dependencies
 
+```
 npm install
+```
+
+### 4️⃣ Create `.env` File
+
+```
+PORT=5000
+MONGO_URI=your_mongodb_connection
+JWT_SECRET=your_secret_key
+```
 
 ---
 
-# ▶ Run Server
+### 5️⃣ Start Server
 
-Start the backend server:
-
+```
 npm start
+```
 
-The server will run on:
+Server runs at:
 
+```
 http://localhost:5000
+```
 
 ---
 
-# 🗄 Database Setup
+## 🔗 Example API
 
-Make sure MongoDB is running locally or use MongoDB Atlas.
+### Register User
 
-Example connection string:
+```
+POST /api/auth/register
+```
 
-mongodb://localhost:27017/hospitalDB
+### Login
 
----
+```
+POST /api/auth/login
+```
 
-# 📡 Example API Endpoints
+### Book Appointment
 
-GET /api/appointments
+```
 POST /api/appointments
-GET /api/patients
-
-These APIs allow the frontend to interact with the database.
+```
 
 ---
 
-# 👨‍💻 Author
+## 🛡 Security
 
-Ashok Kumar
-GitHub: https://github.com/ashokkumar2005
+* JWT Authentication
+* Password Hashing
+* Protected Routes
+* Global Error Handling
 
+---
+
+## 🔮 Future Improvements
+
+* AI disease prediction model
+* Real-time ambulance tracking
+* Electronic health records
+* Notification system
+
+---
+
+## 👨‍💻 Author
+
+Ashok Sam
+
+MERN Stack Developer
